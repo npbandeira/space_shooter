@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 			shoot_cd = true
 			shoot()
 			await get_tree().create_timer(rate_of_fire).timeout
-			shoot_cd = false
+			shoot_cd = false 
 		
 func _physics_process(delta: float) -> void:
 	
@@ -32,3 +32,6 @@ func _physics_process(delta: float) -> void:
 
 func shoot() -> void:
 	laser_shot.emit(laser_scene, muzzle.global_position)
+	
+func die():
+	queue_free()
